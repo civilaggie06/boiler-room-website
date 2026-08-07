@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boiler Room Smoking Lounge | Private Cigar &amp; Pipe Lounge, Austin TX</title>
+<meta name="description" content="Boiler Room Smoking Lounge — a private cigar and pipe lounge in the basement of the historic York Rite Building, downtown Austin. Members enjoy 24/7 humidor locker access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14100d;
+    --bg-alt: #1c1611;
+    --panel: #221a14;
+    --line: rgba(201,162,39,0.18);
+    --cream: #f2e9db;
+    --cream-dim: #cbbfa9;
+    --brass: #c9a227;
+    --brass-soft: #a9852b;
+    --brown: #8b4513;
+    --ember: #b5581f;
+    --shadow: 0 20px 50px rgba(0,0,0,0.45);
+    --radius: 4px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;margin:0 0 .5em;letter-spacing:.01em;}
+  .eyebrow{
+    display:inline-block;
+    font-size:.72rem;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  section{padding:96px 0;position:relative;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 30px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:.85rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:all .25s ease;
+  }
+  .btn-primary{background:var(--brass);color:#1a1410;}
+  .btn-primary:hover{background:#dcb63a;transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(242,233,219,0.35);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass);}
+
+  /* Texture overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(201,162,39,0.05), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(139,69,19,0.08), transparent 45%);
+    z-index:0;
+  }
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(20,16,13,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1120px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    display:flex;flex-direction:column;line-height:1.05;
+  }
+  .logo .l1{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;letter-spacing:.04em;color:var(--cream);}
+  .logo .l2{font-size:.62rem;letter-spacing:.32em;color:var(--brass);text-transform:uppercase;margin-top:3px;}
+  .navlinks{display:flex;gap:34px;align-items:center;}
+  .navlinks a{
+    font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cream-dim);font-weight:600;
+    padding:6px 0;border-bottom:1px solid transparent;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .navlinks a:hover{color:var(--brass);border-color:var(--brass);}
+  .nav-cta{display:flex;align-items:center;gap:20px;}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;}
+
+  @media(max-width:860px){
+    .navlinks{
+      position:fixed;top:76px;left:0;right:0;bottom:0;
+      background:var(--bg);
+      flex-direction:column;
+      padding:40px 24px;
+      gap:26px;
+      transform:translateX(100%);
+      transition:transform .3s ease;
+    }
+    .navlinks.open{transform:translateX(0);}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-primary{display:none;}
+  }
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:76px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background-image:linear-gradient(180deg, rgba(15,11,9,0.55) 0%, rgba(15,11,9,0.75) 55%, var(--bg) 96%),
+      url('https://img1.wsimg.com/isteam/ip/1e2a3eb8-80a0-4c0b-b2c5-993252c60520/Boiler%20Room%20Smoking%20Lounge%20photo.png');
+    background-size:cover;
+    background-position:center 30%;
+    filter:saturate(0.85);
+  }
+  .hero-content{position:relative;z-index:2;max-width:680px;padding:0 24px;margin:0 auto;text-align:left;}
+  .hero-content .wrap-inner{max-width:640px;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.5vw, 4rem);
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:22px;
+  }
+  .hero h1 em{color:var(--brass);font-style:normal;}
+  .hero p{
+    font-size:1.08rem;
+    color:var(--cream-dim);
+    max-width:520px;
+    margin-bottom:36px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-meta{
+    margin-top:56px;
+    display:flex;gap:40px;flex-wrap:wrap;
+    border-top:1px solid var(--line);
+    padding-top:24px;
+  }
+  .hero-meta div{font-size:.8rem;color:var(--cream-dim);}
+  .hero-meta strong{display:block;color:var(--brass);font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;margin-bottom:4px;}
+
+  /* SECTION HEADERS */
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .section-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem);}
+  .section-head p{color:var(--cream-dim);font-size:1.02rem;}
+
+  /* ABOUT */
+  .about{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .about-copy p{color:var(--cream-dim);margin-bottom:18px;}
+  .about-figure{
+    border:1px solid var(--line);
+    padding:8px;
+    background:var(--panel);
+    box-shadow:var(--shadow);
+  }
+  .about-figure img{filter:saturate(.9) contrast(1.05);}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:36px;}}
+
+  /* MEMBERSHIP */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:32px 24px;
+    border-radius:var(--radius);
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--brass);}
+  .card .icon{
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--brass);
+    border-radius:50%;
+    color:var(--brass);
+    margin-bottom:20px;
+    font-size:1.15rem;
+  }
+  .card h3{font-size:1.1rem;margin-bottom:10px;color:var(--cream);}
+  .card p{font-size:.9rem;color:var(--cream-dim);margin:0;}
+  @media(max-width:960px){.cards{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr;}}
+
+  .plans{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:48px;
+  }
+  .plan-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 32px;
+    text-align:center;
+  }
+  .plan-card.featured{
+    border-color:var(--brass);
+    background:linear-gradient(160deg, rgba(201,162,39,0.1), var(--panel));
+  }
+  .plan-price{
+    font-family:'Playfair Display',serif;
+    font-size:2.6rem;
+    font-weight:700;
+    color:var(--cream);
+    margin:10px 0 14px;
+  }
+  .plan-price span{
+    font-family:'Inter',sans-serif;
+    font-size:.95rem;
+    font-weight:500;
+    color:var(--cream-dim);
+  }
+  .plan-card p{color:var(--cream-dim);font-size:.9rem;margin-bottom:24px;}
+  .plan-card .btn{width:100%;justify-content:center;}
+  @media(max-width:700px){.plans{grid-template-columns:1fr;}}
+
+  .after-join{
+    margin-top:24px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 36px;
+  }
+  .after-join h3{font-size:1.1rem;margin-bottom:20px;}
+  .after-join-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .step{display:flex;gap:14px;align-items:flex-start;}
+  .step-num{
+    flex:none;width:28px;height:28px;border-radius:50%;
+    border:1px solid var(--brass);color:var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-weight:700;font-size:.9rem;
+  }
+  .step p{margin:0;font-size:.88rem;color:var(--cream-dim);}
+  .step a{color:var(--brass);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  @media(max-width:860px){.after-join-steps{grid-template-columns:1fr;}}
+
+  .membership-cta{
+    margin-top:32px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:linear-gradient(120deg, rgba(201,162,39,0.12), rgba(139,69,19,0.12));
+    border:1px solid var(--line);
+    padding:32px 36px;
+    border-radius:var(--radius);
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .membership-cta h3{margin-bottom:6px;font-size:1.3rem;}
+  .membership-cta p{margin:0;color:var(--cream-dim);font-size:.92rem;}
+
+  /* HOURS / LOCATION */
+  .location{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .loc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;}
+  .loc-info h3{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);margin-bottom:10px;}
+  .loc-block{margin-bottom:34px;}
+  .loc-block p{color:var(--cream-dim);margin:0;}
+  .hours-table{width:100%;border-collapse:collapse;}
+  .hours-table td{padding:10px 0;border-bottom:1px solid var(--line);color:var(--cream-dim);font-size:.95rem;}
+  .hours-table td:last-child{text-align:right;color:var(--cream);font-weight:600;}
+  .map-panel{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:28px;
+    display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .map-frame{
+    aspect-ratio:4/3;
+    background:
+      repeating-linear-gradient(45deg, rgba(201,162,39,0.06) 0 2px, transparent 2px 14px),
+      #241c15;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--cream-dim);
+    font-size:.85rem;
+    text-align:center;
+    padding:20px;
+    margin-bottom:20px;
+  }
+  @media(max-width:860px){.loc-grid{grid-template-columns:1fr;}}
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--cream);
+    font-family:'Playfair Display',serif;font-size:1.08rem;font-weight:600;
+    padding:22px 0;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+  }
+  .faq-q .plus{color:var(--brass);font-size:1.3rem;transition:transform .25s ease;font-family:'Inter',sans-serif;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq-item.open .faq-a{max-height:240px;}
+  .faq-a p{color:var(--cream-dim);padding-bottom:22px;margin:0;font-size:.95rem;}
+
+  /* CONTACT */
+  .contact{background:var(--bg-alt);border-top:1px solid var(--line);}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;}
+  .contact-info p{color:var(--cream-dim);}
+  .contact-line{display:flex;gap:14px;margin-bottom:18px;font-size:.95rem;color:var(--cream-dim);}
+  .contact-line strong{color:var(--cream);min-width:70px;display:inline-block;}
+  .social-row{display:flex;gap:12px;margin-top:28px;}
+  .social-row a{
+    width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:.85rem;
+    color:var(--cream-dim);transition:all .2s ease;
+  }
+  .social-row a:hover{border-color:var(--brass);color:var(--brass);}
+  form{display:flex;flex-direction:column;gap:16px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  label{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:6px;display:block;}
+  input,textarea{
+    width:100%;background:var(--panel);border:1px solid var(--line);
+    color:var(--cream);padding:13px 14px;font-family:'Inter',sans-serif;font-size:.95rem;
+    border-radius:2px;
+  }
+  input:focus,textarea:focus{outline:none;border-color:var(--brass);}
+  textarea{resize:vertical;min-height:120px;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;}}
+
+  /* FOOTER */
+  footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  footer p{color:var(--cream-dim);font-size:.82rem;margin:6px 0;}
+  footer .foot-links{display:flex;gap:26px;justify-content:center;margin-bottom:18px;flex-wrap:wrap;}
+  footer .foot-links a{font-size:.78rem;color:var(--cream-dim);text-transform:uppercase;letter-spacing:.08em;}
+  footer .foot-links a:hover{color:var(--brass);}
+
+  .age-badge{
+    display:inline-block;margin-top:14px;padding:6px 14px;
+    border:1px solid var(--line);font-size:.72rem;letter-spacing:.1em;
+    color:var(--cream-dim);text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="logo">
+      <span class="l1">Boiler Room</span>
+      <span class="l2">Smoking Lounge</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#membership">Membership</a>
+      <a href="#location">Hours &amp; Location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Inquire</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Downtown Austin · Est. 2026</span>
+    <h1>A private sanctuary for <em>cigars,</em> pipes, and good company.</h1>
+    <p>Tucked in the basement of the historic York Rite Building on 7th Street, Boiler Room Smoking Lounge is Austin's members-first retreat for the unhurried ritual of the cigar and the pipe.</p>
+    <div class="hero-actions">
+      <a href="#membership" class="btn btn-primary">Become a Member</a>
+      <a href="#location" class="btn btn-ghost">Visit the Lounge</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Thu – Sat</strong>Noon – 8:00 PM</div>
+      <div><strong>Members</strong>24/7 Locker Access</div>
+      <div><strong>Location</strong>311 W 7th St, Austin TX</div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">The Lounge</span>
+      <h2>Underground, by design.</h2>
+      <p>Boiler Room takes its name from its home — a below-street level space in the historic York Rite Building at 311 W 7th Street, one of downtown Austin's oldest addresses. The result is a hideaway that feels removed from the noise above: a mix of seating, warm brass fixtures, and the slow curl of pipe smoke.</p>
+      <p>This is a lounge built around the ritual, not the rush. Whether you're breaking in a new pipe or working through a private humidor selection, the room is yours to slow down in.</p>
+      <p>Boiler Room is a bring-your-own lounge: bring your own cigars or pipe tobacco, and bring your own beverages. We supply the space, the seating, and — for members — the locker.</p>
+      <p>Open to the public Thursday through Saturday, and available around the clock to members through private locker access.</p>
+    </div>
+    <div class="about-figure">
+      <img src="https://img1.wsimg.com/isteam/ip/1e2a3eb8-80a0-4c0b-b2c5-993252c60520/Boiler%20Room%20Smoking%20Lounge%20photo.png" alt="Boiler Room Smoking Lounge interior">
+    </div>
+  </div>
+</section>
+
+<section class="membership" id="membership">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Membership</span>
+      <h2>Your smoke, your space, any hour.</h2>
+      <p>Membership at Boiler Room comes with a personal humidor locker and 24/7 access to the lounge — well beyond our public hours.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="icon">⏱</div>
+        <h3>24/7 Locker Access</h3>
+        <p>Members can access their personal locker and the lounge at any hour, any day of the week.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h3>Private Humidor Storage</h3>
+        <p>A dedicated, climate-considered locker to store your personal cigar and pipe tobacco collection on-site.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🪑</div>
+        <h3>Open Lounge Seating</h3>
+        <p>Settle into the lounge's mix of seating, including leather club chairs, in a room built for long, unhurried sessions — open seating, first come, first served.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>A Members' Community</h3>
+        <p>Join a small circle of regulars who treat the lounge like a second living room.</p>
+      </div>
+    </div>
+    <div class="plans">
+      <div class="plan-card">
+        <span class="eyebrow">Month-to-Month</span>
+        <div class="plan-price">$40<span>/month</span></div>
+        <p>Full 24/7 locker access, billed monthly. Cancel anytime.</p>
+        <a href="https://fefcb327-75e0-49fe-814e-b82d35d9f24e.paylinks.godaddy.com" target="_blank" rel="noopener" class="btn btn-primary">Join Now</a>
+      </div>
+      <div class="plan-card featured">
+        <span class="eyebrow">Best Value</span>
+        <div class="plan-price">$400<span>/year</span></div>
+        <p>Full 24/7 locker access for 12 months — the equivalent of 2 months free versus month-to-month.</p>
+        <a href="https://fefcb327-75e0-49fe-814e-b82d35d9f24e.paylinks.godaddy.com" target="_blank" rel="noopener" class="btn btn-primary">Join Now</a>
+      </div>
+    </div>
+    <div class="after-join">
+      <h3>After You Join</h3>
+      <div class="after-join-steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p>You'll receive a copy of our <a href="membership-rules.pdf" target="_blank" rel="noopener">Membership Rules &amp; Terms (PDF)</a> confirming your payment.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p>Call <a href="tel:15128451137">512-845-1137</a> to get your locker number and entry code.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p>Or bring your payment receipt to the lounge and see <strong>Carl</strong> to get set up in person.</p>
+        </div>
+      </div>
+    </div>
+    <div class="membership-cta">
+      <div>
+        <h3>Questions before you join?</h3>
+        <p>Membership is limited to preserve the lounge's size and character. Reach out to check current availability.</p>
+      </div>
+      <a href="#contact" class="btn btn-ghost">Request Membership Info</a>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="wrap loc-grid">
+    <div class="loc-info">
+      <div class="loc-block">
+        <h3>Address</h3>
+        <p>311 W 7th Street<br>Basement of the York Rite Building<br>Austin, TX 78701</p>
+      </div>
+      <div class="loc-block">
+        <h3>Public Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday</td><td>Members only</td></tr>
+          <tr><td>Tuesday</td><td>Members only</td></tr>
+          <tr><td>Wednesday</td><td>Members only</td></tr>
+          <tr><td>Thursday</td><td>Noon – 8:00 PM</td></tr>
+          <tr><td>Friday</td><td>Noon – 8:00 PM</td></tr>
+          <tr><td>Saturday</td><td>Noon – 8:00 PM</td></tr>
+          <tr><td>Sunday</td><td>Members only</td></tr>
+        </table>
+      </div>
+      <div class="loc-block">
+        <h3>Getting In</h3>
+        <p>Look for the entrance below street level on the 7th Street side of the York Rite Building — the "boiler room" is beneath the historic facade, not through the main lobby.</p>
+      </div>
+    </div>
+    <div class="map-panel">
+      <div class="map-frame">Map preview<br>311 W 7th Street, Austin, TX 78701<br><em>(embed your Google Maps link here)</em></div>
+      <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=311+W+7th+Street+Austin+TX+78701" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Good to know before you visit</h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item open">
+        <button class="faq-q">What is Boiler Room Smoking Lounge? <span class="plus">+</span></button>
+        <div class="faq-a"><p>A private cigar and pipe smoking lounge located in the basement of the York Rite Building in downtown Austin, open to the public Thursday through Saturday and to members 24/7.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do I need to be a member to visit? <span class="plus">+</span></button>
+        <div class="faq-a"><p>No — the lounge is open to the public Thursday through Saturday, Noon to 8:00 PM. Membership is only required for access outside of those hours and for a personal locker.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What does the 24/7 locker membership include? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Members receive a personal humidor locker to store their own cigars or pipe tobacco, plus round-the-clock access to the lounge, even outside public hours. After joining, call 512-845-1137 to get your locker number and entry code, or bring your payment receipt to the lounge and see Carl to get set up in person.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there an age requirement? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, guests must be 21 or older to enter the lounge, in accordance with Texas tobacco regulations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you sell cigars and pipe tobacco on-site? <span class="plus">+</span></button>
+        <div class="faq-a"><p>No — Boiler Room is a BYO lounge. Bring your own cigars or pipe tobacco, and bring your own beverages. We provide the space, seating, and your locker.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I bring guests? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Guests are welcome any time when accompanied by a member, but must leave when the member leaves. Outside of that, the lounge is open to the public only during business hours (Thursday – Saturday, Noon – 8:00 PM).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Reach out to us</h2>
+      <p>Questions about membership, locker availability, or visiting hours? Send us a note and we'll get back to you.</p>
+      <div class="contact-line"><strong>Address</strong> 311 W 7th Street, Basement of the York Rite Building, Austin, TX 78701</div>
+      <div class="contact-line"><strong>Hours</strong> Thursday – Saturday, Noon – 8:00 PM</div>
+      <div class="contact-line"><strong>Phone</strong> <a href="tel:15128451137">512-845-1137</a></div>
+      <div class="social-row">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+      <span class="age-badge">21+ Only</span>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Your Name</label>
+          <input id="name" type="text" placeholder="Jane Doe" required>
+        </div>
+        <div>
+          <label for="email">Your Email *</label>
+          <input id="email" type="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="I'd like to ask about membership availability..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="#about">About</a>
+      <a href="#membership">Membership</a>
+      <a href="#location">Hours &amp; Location</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>Copyright © <span id="year"></span> Boiler Room Smoking Lounge — All Rights Reserved.</p>
+    <p>311 W 7th Street, Basement of the York Rite Building, Austin, TX 78701</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navlinks = document.getElementById('navlinks');
+  menuToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if(!isOpen) item.classList.add('open');
+    });
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value || 'there';
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const subject = encodeURIComponent('Website inquiry from ' + name);
+    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:boilerroomsmokinglounge@gmail.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
