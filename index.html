@@ -174,8 +174,7 @@
   /* NAV */
   header{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(20,16,13,0.88);
-    backdrop-filter:blur(8px);
+    background:rgba(20,16,13,0.97);
     border-bottom:1px solid var(--line);
   }
   nav{
@@ -208,6 +207,8 @@
       gap:26px;
       transform:translateX(100%);
       transition:transform .3s ease;
+      overflow-y:auto;
+      z-index:99;
     }
     .navlinks.open{transform:translateX(0);}
     .menu-toggle{display:block;}
