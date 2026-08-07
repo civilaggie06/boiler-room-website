@@ -58,8 +58,13 @@ nav{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;align-items:cente
 .page-header{padding-top:160px;padding-bottom:56px;text-align:center;}
 .page-header h1{font-size:clamp(2.2rem,4vw,3rem);}
 .page-header p{color:var(--cream-dim);max-width:620px;margin:0 auto;font-size:1.05rem;}
-.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;padding-bottom:96px;}
-@media(max-width:760px){.blog-grid{grid-template-columns:1fr;}}
+.blog-sections{padding-bottom:96px;}
+.blog-section{margin-bottom:64px;}
+.blog-section:last-child{margin-bottom:0;}
+.blog-section-head{margin-bottom:28px;}
+.blog-section-head .eyebrow{margin-bottom:8px;}
+.blog-section-head h2{font-size:1.6rem;color:var(--cream);margin:0;}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,360px));gap:32px;}
 .post-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;transition:transform .25s ease, border-color .25s ease;}
 .post-card:hover{transform:translateY(-4px);border-color:var(--brass);}
 .post-card .post-date{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);margin-bottom:10px;}
@@ -101,19 +106,36 @@ footer .foot-links a:hover{color:var(--brass);}
   <p>Notes on cigars, pipe tobacco, and tobacco pipes — for members and anyone else working their way deeper into the hobby.</p>
 </div>
 
-<div class="wrap blog-grid">
-  <a href="/blog/cigar-wrappers-101-how-color-shapes-flavor.html" class="post-card">
-    <span class="post-date">August 2026</span>
-    <h2>Cigar Wrappers 101: How Wrapper Color Shapes Flavor</h2>
-    <p>A beginner's guide to the cigar wrapper color spectrum — from Connecticut Shade to Oscuro — and how the wrapper leaf shapes what you taste before you even light up.</p>
-    <span class="read-more">Read the Post →</span>
-  </a>
-  <a href="/blog/pipe-tobacco-101-choosing-your-first-blend.html" class="post-card">
-    <span class="post-date">August 2026</span>
-    <h2>Pipe Tobacco 101: Choosing Your First Blend</h2>
-    <p>A plain-language guide to the major pipe tobacco families — Virginia, Burley, Latakia, and aromatics — and how to pick a starter blend that won't overwhelm a new pipe smoker.</p>
-    <span class="read-more">Read the Post →</span>
-  </a>
+<div class="wrap blog-sections">
+  <div class="blog-section">
+    <div class="blog-section-head">
+      <span class="eyebrow">Cigars</span>
+      <h2>Cigar Reading</h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/blog/cigar-wrappers-101-how-color-shapes-flavor.html" class="post-card">
+        <span class="post-date">August 2026</span>
+        <h2>Cigar Wrappers 101: How Wrapper Color Shapes Flavor</h2>
+        <p>A beginner's guide to the cigar wrapper color spectrum — from Connecticut Shade to Oscuro — and how the wrapper leaf shapes what you taste before you even light up.</p>
+        <span class="read-more">Read the Post →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <div class="blog-section-head">
+      <span class="eyebrow">Pipes &amp; Tobacco</span>
+      <h2>Pipe Reading</h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/blog/pipe-tobacco-101-choosing-your-first-blend.html" class="post-card">
+        <span class="post-date">August 2026</span>
+        <h2>Pipe Tobacco 101: Choosing Your First Blend</h2>
+        <p>A plain-language guide to the major pipe tobacco families — Virginia, Burley, Latakia, and aromatics — and how to pick a starter blend that won't overwhelm a new pipe smoker.</p>
+        <span class="read-more">Read the Post →</span>
+      </a>
+    </div>
+  </div>
 </div>
 
 <footer>
